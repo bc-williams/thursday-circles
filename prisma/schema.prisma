@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum RSVPStatus {
+  going
+  cancelled
+  attended
+}
+
+model City {
+  id        Int      @id @default(autoincrement())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  circles   Circle[]
+  users     User[]
+}
+
+model Activity {
+  id        Int      @id @default(autoincrement())
+  name      String
+  slug      String   @unique
+  iconPath  String?
+  createdAt DateTime @default(now())
+
+  circles     Circle[]
+  memberships UserActivityMembership[]
+}
+
+model Circle {
+  id         Int      @id @default(autoincrement())
+  cityId     Int
+  activityId Int
+  createdAt  DateTime @default(now())
+
+  city       City     @relation(fields: [cityId], references: [id])
+  activity   Activity @relation(fields: [activityId], references: [id])
+  events     Event[]
+
+  @@unique([cityId, activityId])
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String
+  phoneNumber  String   @unique
+  photoUrl     String?
+  homeCityId   Int?
+  createdAt    DateTime @default(now())
+
+  homeCity      City?                     @relation(fields: [homeCityId], references: [id])
+  memberships   UserActivityMembership[]
+  hostedEvents  Event[]                   @relation("HostedEvents")
+  rsvps         EventRSVP[]
+  rsvpChanges   EventRSVPChange[]
+}
+
+model UserActivityMembership {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  activityId Int
+  joinedAt   DateTime @default(now())
+
+  user       User     @relation(fields: [userId], references: [id])
+  activity   Activity @relation(fields: [activityId], references: [id])
+
+  @@unique([userId, activityId])
+}
+
+model Event {
+  id           Int      @id @default(autoincrement())
+  circleId     Int
+  title        String
+  startTime    DateTime
+  locationName String
+  hostUserId   Int
+  isCancelled  Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
+  circle       Circle           @relation(fields: [circleId], references: [id])
+  host         User             @relation("HostedEvents", fields: [hostUserId], references: [id])
+  rsvps        EventRSVP[]
+  rsvpChanges  EventRSVPChange[]
+}
+
+model EventRSVP {
+  id        Int        @id @default(autoincrement())
+  eventId   Int
+  userId    Int
+  status    RSVPStatus @default(going)
+  joinedAt  DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  event     Event      @relation(fields: [eventId], references: [id])
+  user      User       @relation(fields: [userId], references: [id])
+
+  @@unique([eventId, userId])
+}
+
+model EventRSVPChange {
+  id        Int        @id @default(autoincrement())
+  eventId   Int
+  userId    Int
+  oldStatus RSVPStatus?
+  newStatus RSVPStatus
+  changedAt DateTime   @default(now())
+
+  event     Event      @relation(fields: [eventId], references: [id])
+  user      User       @relation(fields: [userId], references: [id])
+}
