@@ -72,16 +72,16 @@ Each of these is designed to reinforce the core flow without adding unnecessary 
 ---
 ## Product Experience
 
-![Core flow](./public/gifs/new-core-flow.gif)  
+![Core flow](./public/gifs/small-core-flow.gif)  
 *Discover circles, explore events, and RSVP in a few clicks.*
 
 ![Create event](./public/gifs/create-event.gif)  
 *Propose events with built-in validation and real-world location autocomplete.*
 
-![AI moderation (guidelines)](./public/gifs/ai-moderation-guidelines.gif) 
+![AI moderation (guidelines)](./public/gifs/small-ai-moderation-guidelines.gif) 
 *AI moderation evaluates whether an event is safe and appropriate before allowing submission.*
 
-![AI moderation (context)](./public/gifs/ai-moderation-context.gif)  
+![AI moderation (context)](./public/gifs/small-ai-moderation-context.gif)  
 *Moderation includes contextual matching to ensure locations for events align with their selected activity.*
 
 ---
@@ -298,7 +298,7 @@ This makes it easier for users to commit without overthinking or evaluating ever
 
 This helps bridge the gap between digital coordination and real-world interaction, making it easier for users to actually find and recognize each other at events.
 
-![Host interaction](./public/gifs/host-pic.gif)  
+![Host interaction](./public/gifs/small-host-pic.gif)  
 *Only host profiles are prioritized for real-world identification, with expandable images for clarity and trust.*
 
 ---
