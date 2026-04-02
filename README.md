@@ -78,7 +78,7 @@ Each of these is designed to reinforce the core flow without adding unnecessary 
 ![Create event](./public/gifs/small-create-event.gif)  
 *Propose events with built-in validation and real-world location autocomplete.*
 
-![AI moderation (guidelines)](./public/gifs/small-ai-moderation-guidelines.gif) 
+![AI moderation (guidelines)](./public/gifs/small-ai-moderation-guidelines.gif)  
 *AI moderation evaluates whether an event is safe and appropriate before allowing submission.*
 
 ![AI moderation (context)](./public/gifs/small-ai-moderation-context.gif)  
@@ -276,7 +276,7 @@ This was intentional to reduce friction for new users while quickly reinforcing 
 Users are required to upload a profile photo before hosting an event.  
 This ensures hosts are identifiable in real-world settings and prevents users from getting all the way through event creation only to be blocked at submission.
 
-![Host photo required before hosting](./public/images/no-host-photo.png)
+<img src="./public/images/no-host-photo.png" alt="Host photo required before hosting" width="300" />
 
 The goal was to minimize the steps between interest → commitment → showing up, and to prevent users from investing time into actions that would ultimately fail validation to prevent user frustration.
 
