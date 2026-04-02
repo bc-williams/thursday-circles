@@ -75,7 +75,7 @@ Each of these is designed to reinforce the core flow without adding unnecessary 
 ![Core flow](./public/gifs/small-core-flow.gif)  
 *Discover circles, explore events, and RSVP in a few clicks.*
 
-![Create event](./public/gifs/create-event.gif)  
+![Create event](./public/gifs/small-create-event.gif)  
 *Propose events with built-in validation and real-world location autocomplete.*
 
 ![AI moderation (guidelines)](./public/gifs/small-ai-moderation-guidelines.gif) 
