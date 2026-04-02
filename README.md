@@ -7,6 +7,7 @@
 
 - [Overview](#what-is-thursday-circles)
 - [Core User Loop](#how-thursday-circles-works)
+- [Product Experience](#product-experience)
 - [Technical Design](#technical-tour)
 - [Product & UX Decisions](#ux-decisions)
 - [Production Considerations](#production-considerations)
@@ -67,6 +68,21 @@ To support this loop, I implemented a focused set of features that make it easy 
 * switch cities to discover events while maintaining the same circles of interest  
 
 Each of these is designed to reinforce the core flow without adding unnecessary complexity.
+
+---
+## Product Experience
+
+![Core flow](./public/gifs/new-core-flow.gif)  
+*Discover circles, explore events, and RSVP in a few clicks.*
+
+![Create event](./public/gifs/create-event.gif)  
+*Propose events with built-in validation and real-world location autocomplete.*
+
+![AI moderation (guidelines)](./public/gifs/ai-moderation-guidelines.gif) 
+*AI moderation evaluates whether an event is safe and appropriate before allowing submission.*
+
+![AI moderation (context)](./public/gifs/ai-moderation-context.gif)  
+*Moderation includes contextual matching to ensure locations for events align with their selected activity.*
 
 ---
 
@@ -253,7 +269,14 @@ This was intentional to reduce friction for new users while quickly reinforcing 
 * RSVP can be managed from multiple places  
 * Validation happens early to avoid wasted effort  
 * Friendly, lightweight error messaging  
-* Required inputs (like host photos and valid locations) are enforced upfront rather than at the end of a flow  
+* Required inputs (like host photos and valid locations) are enforced upfront rather than at the end of a flow
+
+**Fail fast, not late**
+
+Users are required to upload a profile photo before hosting an event.  
+This ensures hosts are identifiable in real-world settings and prevents users from getting all the way through event creation only to be blocked at submission.
+
+![Host photo required before hosting](./public/images/no-host-photo.png)
 
 The goal was to minimize the steps between interest → commitment → showing up, and to prevent users from investing time into actions that would ultimately fail validation to prevent user frustration.
 
@@ -275,6 +298,9 @@ This makes it easier for users to commit without overthinking or evaluating ever
 
 This helps bridge the gap between digital coordination and real-world interaction, making it easier for users to actually find and recognize each other at events.
 
+![Host interaction](./public/gifs/host-pic.gif)  
+*Only host profiles are prioritized for real-world identification, with expandable images for clarity and trust.*
+
 ---
 
 ### Balancing trust and friction
@@ -283,6 +309,7 @@ This helps bridge the gap between digital coordination and real-world interactio
 * Attendees are not  
 
 This creates enough trust for users to feel comfortable attending, while keeping the barrier to entry low.
+
 
 ---
 
